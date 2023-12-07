@@ -28,7 +28,13 @@ int Input_Values(int* A, int* n, int* maxi){
   */
   return 0;
 }
-
+/**
+ * @brief Sorts positve integers into ascending order
+ * @param int* A Array of positive integers
+ * @param int n Size of A
+ * @param int k index of current bit
+ * @return maybe at later date (not used)  
+ */
 int OneZeroSort(int* A, int n, int k){
   int i;
   int One[ARRAYSIZE] = {0},Zero[ARRAYSIZE]={0};
