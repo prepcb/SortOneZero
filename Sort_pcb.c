@@ -7,12 +7,13 @@ int Input_Values(int* A, int* n, int* maxi){
   printf("Input size of array\n");
   scanf(" %d",n);
   printf("You input array size %d\n",*n);
-  printf("Input %d numbers \n",*n);
+  printf("Input %d numbers > 0 \n",*n);
   int i,j =1;
   for (i = 0;i<*n;i++){
     scanf("%d",&A[i]);
     if(A[i] > (1<<24))return 1;
-    while(A[i]>j){
+    if(A[i] < 0)return 1;
+    while(A[i]+1>j){
       j = (j<<1);
       (*maxi)++;
     }
@@ -67,15 +68,19 @@ int Output_Values(int *A,int n){
   int A[ARRAYSIZE]={0};
   int n = 0,i,maxi=0,error=1;
   
+  //input the array 
   error =   Input_Values(A,&n,&maxi);
   if(error == 1){
-     printf("too large an integer\n");
+     printf("Integer > 0 and not too large \n");
      return 1;
   }
+
+  //Sort the data
   for(i=0;i<maxi;i++){
     OneZeroSort(A,n,i);
   }
 
+//output the sorted array
   Output_Values(A,n);
 
 
